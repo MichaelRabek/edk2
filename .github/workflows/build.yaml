@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: self-hosted
     outputs:
       tag: ${{ steps.find_tag.outputs.TAG }}
     steps:
@@ -76,7 +76,7 @@ jobs:
             github.event.pull_request.merged == true ) ) ) ||
       github.event_name == 'workflow_dispatch'
     needs: build
-    runs-on: ubuntu-24.04
+    runs-on: self-hosted
     permissions:
       deployments: write
       contents: write
